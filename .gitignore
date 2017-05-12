@@ -87,3 +87,12 @@ ENV/
 
 # Rope project settings
 .ropeproject
+
+# Exports Script
+webapp/exports.sh
+
+# Migrations for DB
+webapp/*/migrations
+
+# d.sqlite3 file
+webapp/db.sqlite3

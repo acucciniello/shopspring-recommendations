@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import logo from './logo.svg'
+import logo from './spring.png'
 import './App.css'
 
 import Recommendations from './components/recommendations.js'
@@ -10,10 +10,10 @@ class App extends Component {
       <div className='App'>
         <div className='App-header'>
           <img src={logo} className='App-logo' alt='logo' />
-          <h2>Welcome to React</h2>
+          <h2>Personalized Recommendations</h2>
         </div>
         <p className='App-intro'>
-          Welcome to Spring! Here are some items we think you would love:
+          Welcome back! Here are some items we think you would love:
         </p>
         <Recommendations />
       </div>
