@@ -15,4 +15,4 @@ class Recommendation(models.Model):
   pictureurl = models.URLField()
 
   def __str__(self):
-    return self.title
+    return self.title  + ' ' + self.url  + ' ' + self.pictureurl + ' ' + str(self.id) + ' ' + str(self.rating) + ' '
