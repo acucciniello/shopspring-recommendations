@@ -1,12 +1,19 @@
 from django.http import HttpResponse
 from polls.models import Recommendation
+from django.template import loader
 
 def index(request):
   # get the top three recommendations based on rating
   getRecommendations = Recommendation.objects.order_by('-rating')[0:3]
   print(getRecommendations)
+  template = loader.get_template('polls/index.html')
+  context = {
+    'getRecommendations': getRecommendations,
+  }
 
-  return HttpResponse(getRecommendations)
+  # send it over to react to render components
+
+  return HttpResponse(template.render(context, request))
 
 
 """ 

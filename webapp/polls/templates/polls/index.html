@@ -1,0 +1,9 @@
+{% if  getRecommendations %}
+  <ul>
+  {% for Recommendation in getRecommendations %}
+    <li><a href='{{ Recommendation.url }}'>{{ Recommendation.title }}</a></li>
+  {% endfor %}
+  </ul>
+{% else %}
+  <p>No recommendations available.</p>
+{% endif %}
