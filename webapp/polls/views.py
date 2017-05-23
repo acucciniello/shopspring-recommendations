@@ -1,21 +1,25 @@
-from django.http import HttpResponse
+from django.http import HttpResponse, JsonResponse
 from polls.models import Recommendation
 from django.template import loader
 from django.views.decorators.csrf import csrf_exempt
+from django.core import serializers
 
 @csrf_exempt
 def index(request):
   # get the top three recommendations based on rating
   getRecommendations = Recommendation.objects.order_by('-rating')[0:3]
   print(getRecommendations)
+  recommendations_serialized = serializers.serialize('json', getRecommendations)
+  # print(recommendations_serialized)
+  """
   template = loader.get_template('polls/index.html')
   context = {
     'getRecommendations': getRecommendations,
   }
-
+  """
   # send it over to react to render components
 
-  return HttpResponse(getRecommendations)
+  return HttpResponse(recommendations_serialized)
 
 
 """ 

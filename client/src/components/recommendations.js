@@ -24,7 +24,9 @@ class Recommendations extends Component {
       if (err) {
         return console.log(err)
       }
-      console.log(resp)
+      console.log(resp.body)
+      var response = JSON.parse(resp.body)
+      console.log(response)
     })
     return
   }
