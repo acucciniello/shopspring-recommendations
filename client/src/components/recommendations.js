@@ -16,6 +16,18 @@ class Recommendations extends Component {
       </div>
     )
   }
+
+  componentWillMount () {
+    var xhr = require('xhr')
+    console.log(xhr)
+    xhr.post('http://127.0.0.1:8000/home/', function (err, resp) {
+      if (err) {
+        return console.log(err)
+      }
+      console.log(resp)
+    })
+    return
+  }
 }
 
 export default Recommendations

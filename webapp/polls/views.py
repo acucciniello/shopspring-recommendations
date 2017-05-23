@@ -1,7 +1,9 @@
 from django.http import HttpResponse
 from polls.models import Recommendation
 from django.template import loader
+from django.views.decorators.csrf import csrf_exempt
 
+@csrf_exempt
 def index(request):
   # get the top three recommendations based on rating
   getRecommendations = Recommendation.objects.order_by('-rating')[0:3]
@@ -13,7 +15,7 @@ def index(request):
 
   # send it over to react to render components
 
-  return HttpResponse(template.render(context, request))
+  return HttpResponse(getRecommendations)
 
 
 """ 
