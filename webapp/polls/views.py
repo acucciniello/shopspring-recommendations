@@ -10,13 +10,6 @@ def index(request):
   getRecommendations = Recommendation.objects.order_by('-rating')[0:3]
   print(getRecommendations)
   recommendations_serialized = serializers.serialize('json', getRecommendations)
-  # print(recommendations_serialized)
-  """
-  template = loader.get_template('polls/index.html')
-  context = {
-    'getRecommendations': getRecommendations,
-  }
-  """
   # send it over to react to render components
 
   return HttpResponse(recommendations_serialized)
