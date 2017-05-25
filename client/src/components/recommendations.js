@@ -39,7 +39,7 @@ class Recommendations extends Component {
     // var currState = this.state
     console.log(this.state)
     var xhr = require('xhr')
-    xhr.post('http://127.0.0.1:8000/rating/', { json: this.state }, function (err, resp) {
+    xhr.post('http://127.0.0.1:8000/home/rating/', { json: this.state }, function (err, resp) {
       if (err) {
         return console.log(err)
       }

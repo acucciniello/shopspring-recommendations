@@ -14,7 +14,10 @@ def index(request):
 
   return HttpResponse(recommendations_serialized)
 
-
+@csrf_exempt
+def rating(request):
+  print(request.body)
+  return HttpResponse('done')
 """ 
 The Final form of index, will basically take query the database for 3 items with the highest rating.
 Once it gets that it will pass the information about the clothing to react where the components will get rendered
