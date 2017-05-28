@@ -3,6 +3,7 @@ from polls.models import Recommendation
 from django.template import loader
 from django.views.decorators.csrf import csrf_exempt
 from django.core import serializers
+import json
 
 @csrf_exempt
 def index(request):
@@ -16,7 +17,14 @@ def index(request):
 
 @csrf_exempt
 def rating(request):
-  print(request.body)
+  d = json.loads(request.body)
+  print(d['recommendations'][0])
+  """
+  body_unicode = request.body.decode('utf-8')
+  body = json.loads(body_unicode)
+  print(body)
+  content = body['recommendations']
+  """
   return HttpResponse('done')
 """ 
 The Final form of index, will basically take query the database for 3 items with the highest rating.

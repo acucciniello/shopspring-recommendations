@@ -8,17 +8,20 @@ class Recommendations extends Component {
         url: 'google.com',
         pictureUrl: ' ',
         rating: -1,
-        title: 'Yes'
+        title: 'Yes',
+        id: -1
       }, {
         url: 'google.com',
         pictureUrl: ' ',
         rating: -1,
-        title: 'Yes'
+        title: 'Yes',
+        id: -1
       }, {
         url: 'google.com',
         pictureUrl: ' ',
         rating: -1,
-        title: 'Yes'
+        title: 'Yes',
+        id: -1
       }]
     }
   }
@@ -44,11 +47,8 @@ class Recommendations extends Component {
         return console.log(err)
       }
       console.log(resp.body)
-      this.setState({
-        recommendations: resp.body
-      })
       return
-    }.bind(this))
+    })
   }
 
   handleClick (e, title) {
@@ -81,6 +81,7 @@ class Recommendations extends Component {
         return console.log(err)
       }
       var response = JSON.parse(resp.body)
+      console.log(response)
       var copyRecommendations = []
       for (var i = 0; i < response.length; i++) {
         var recommendation = {
@@ -88,7 +89,7 @@ class Recommendations extends Component {
           pictureUrl: response[i].fields.pictureurl,
           rating: response[i].fields.rating,
           title: response[i].fields.title,
-          clicked: false
+          id: response[i].pk
         }
         copyRecommendations.push(recommendation)
       }
