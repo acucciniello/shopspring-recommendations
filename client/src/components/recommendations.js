@@ -27,7 +27,6 @@ class Recommendations extends Component {
   }
 
   changeRating (title) {
-    // make recommendations[thisOneThatwasClicked].clicked = True
     console.log(title)
     var ratingsChange = this.state.recommendations.slice()
     for (var i = 0; i < this.state.recommendations.length; i++) {
@@ -52,7 +51,7 @@ class Recommendations extends Component {
     })
   }
 
-  handleClick (e, title) {
+  handleClick (title, e) {
     this.changeRating(title)
   }
 

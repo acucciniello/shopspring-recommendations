@@ -24,7 +24,6 @@ def rating(request):
   for recommendation in recommendations:
     currRating = recommendation['rating']
     currId = recommendation['id']
-    #storeRating = Recommendation.objects.raw('UPDATE polls_recommendation SET rating = %s WHERE id = %s;', [currRating, currId])
     update_rating(currRating, currId)
   return HttpResponse('ratings were changed')
 
