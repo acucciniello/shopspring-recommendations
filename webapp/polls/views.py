@@ -4,6 +4,7 @@ from django.template import loader
 from django.views.decorators.csrf import csrf_exempt
 from django.core import serializers
 import json
+from django.db import connection
 
 @csrf_exempt
 def index(request):
@@ -17,23 +18,18 @@ def index(request):
 
 @csrf_exempt
 def rating(request):
-  d = json.loads(request.body)
-  print(d['recommendations'][0])
-  """
-  body_unicode = request.body.decode('utf-8')
-  body = json.loads(body_unicode)
-  print(body)
-  content = body['recommendations']
-  """
-  return HttpResponse('done')
-""" 
-The Final form of index, will basically take query the database for 3 items with the highest rating.
-Once it gets that it will pass the information about the clothing to react where the components will get rendered
-"""
+  response = json.loads(request.body)
 
-"""
-Once a user selects a type of clothing, the page should redirect to the shopspring buy it page.
-it should then send a XHR Post request to a route here, where we subtract one from the rating (as long as its >0)
-from the ones that were not selected.  And then add one to the rating that is was selected.
-In the case where none were selected, we subtract one from them all
-"""
+  recommendations = response['recommendations']
+  for recommendation in recommendations:
+    currRating = recommendation['rating']
+    currId = recommendation['id']
+    #storeRating = Recommendation.objects.raw('UPDATE polls_recommendation SET rating = %s WHERE id = %s;', [currRating, currId])
+    update_rating(currRating, currId)
+  return HttpResponse('ratings were changed')
+
+
+def update_rating(currRating, currId):
+    with connection.cursor() as cursor:
+        cursor.execute('UPDATE polls_recommendation SET rating = %s WHERE id = %s;', [currRating, currId])
+    return 
