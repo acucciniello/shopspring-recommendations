@@ -5,8 +5,29 @@ from django.views.decorators.csrf import csrf_exempt
 from django.core import serializers
 import json
 from django.db import connection
+from django.conf import settings
+from django.views.generic import View
+import logging
+import os
 
 
+class FrontendAppView(View):
+  """
+  Serves the complied frontend entry point
+  """
+  def get(self, request):
+    try:
+      print(settings.REACT_APP_DIR)
+      testDir = os.path.join(settings.REACT_APP_DIR, 'build', 'index.html')
+      print(testDir)
+      print(settings.STATICFILES_DIRS)
+      with open(os.path.join(settings.REACT_APP_DIR, 'build', 'index.html')) as f:
+        return HttpResponse(f.read())
+    except IOError:
+      logging.exception('Production build of app not found')
+      return HttpResponse(
+        status = 501,
+        )
 # Route to to pull the three highest rated recommendations from the database and send to client
 @csrf_exempt
 def index(request):

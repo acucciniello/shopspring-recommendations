@@ -50,7 +50,7 @@ class Recommendations extends Component {
     })
     var xhr = require('xhr')
     // send new rating to be stored in database
-    xhr.post('http://127.0.0.1:8000/home/rating/', { json: this.state }, function (err, resp) {
+    xhr.post('http://127.0.0.1:8000/rating/', { json: this.state }, function (err, resp) {
       if (err) {
         return console.log(err)
       }
@@ -87,7 +87,7 @@ class Recommendations extends Component {
   // XHR request returns recommendations needed
   componentWillMount () {
     var xhr = require('xhr')
-    xhr.post('http://127.0.0.1:8000/home/', function (err, resp) {
+    xhr.post('http://127.0.0.1:8000/get_recommendations/', function (err, resp) {
       if (err) {
         return console.log(err)
       }

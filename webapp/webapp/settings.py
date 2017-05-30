@@ -124,9 +124,14 @@ USE_L10N = True
 
 USE_TZ = True
 
-
+MAIN_DIR = os.path.abspath(os.path.join(BASE_DIR, os.pardir))
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
+REACT_APP_DIR = os.path.join(MAIN_DIR, 'client')
+
+STATICFILES_DIRS = [
+    os.path.join(REACT_APP_DIR, 'build', 'static'),
+]
 
 STATIC_URL = '/static/'
 
