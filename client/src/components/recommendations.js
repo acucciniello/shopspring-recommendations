@@ -3,21 +3,28 @@ import React, { Component } from 'react'
 class Recommendations extends Component {
   constructor (props) {
     super(props)
+    // Setting up the inital state
+    // It is meant to display three recommendations
+    // url - the url to the item on shopspring.com
+    // pictureurl - the link to the image in AWS S3
+    // rating - the score for the item
+    // title - what the item is called
+    // id - primary key for the item in the database
     this.state = {
       recommendations: [{
-        url: 'google.com',
+        url: '',
         pictureUrl: ' ',
         rating: -1,
         title: 'Yes',
         id: -1
       }, {
-        url: 'google.com',
+        url: '',
         pictureUrl: ' ',
         rating: -1,
         title: 'Yes',
         id: -1
       }, {
-        url: 'google.com',
+        url: '',
         pictureUrl: ' ',
         rating: -1,
         title: 'Yes',
@@ -26,22 +33,23 @@ class Recommendations extends Component {
     }
   }
 
+  // Function to update the rating based on which items were clicked
   changeRating (title) {
-    console.log(title)
     var ratingsChange = this.state.recommendations.slice()
     for (var i = 0; i < this.state.recommendations.length; i++) {
+      // raise the rating of the one clicked
       if (title === this.state.recommendations[i].title) {
         ratingsChange[i].rating++
       } else {
+        // reduce the rating of one not clicked
         ratingsChange[i].rating--
       }
     }
     this.setState({
       recommendations: ratingsChange
     })
-    // var currState = this.state
-    console.log(this.state)
     var xhr = require('xhr')
+    // send new rating to be stored in database
     xhr.post('http://127.0.0.1:8000/home/rating/', { json: this.state }, function (err, resp) {
       if (err) {
         return console.log(err)
@@ -55,6 +63,7 @@ class Recommendations extends Component {
     this.changeRating(title)
   }
 
+  // Renders 3 clickable images filled with info from the database
   render () {
     return (
       <div className={'recommendations'} >
@@ -74,6 +83,8 @@ class Recommendations extends Component {
     )
   }
 
+  // Called on page loading
+  // XHR request returns recommendations needed
   componentWillMount () {
     var xhr = require('xhr')
     xhr.post('http://127.0.0.1:8000/home/', function (err, resp) {
@@ -81,9 +92,9 @@ class Recommendations extends Component {
         return console.log(err)
       }
       var response = JSON.parse(resp.body)
-      console.log(response)
       var copyRecommendations = []
       for (var i = 0; i < response.length; i++) {
+        // store the recommendation
         var recommendation = {
           url: response[i].fields.url,
           pictureUrl: response[i].fields.pictureurl,
@@ -93,6 +104,7 @@ class Recommendations extends Component {
         }
         copyRecommendations.push(recommendation)
       }
+      // update the state with the new information
       this.setState({
         recommendations: copyRecommendations
       })
