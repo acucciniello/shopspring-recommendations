@@ -1,5 +1,5 @@
 # shopspring-recommendations   [![Standard - JavaScript Style Guide](https://cdn.rawgit.com/feross/standard/master/badge.svg)](https://github.com/feross/standard     )
-===============
+
 A Startup Page for shopspring.com to give users recommendations based on data science
 
 ## Requirements
@@ -51,8 +51,7 @@ A Startup Page for shopspring.com to give users recommendations based on data sc
         'HOST': 'localhost',
         'PORT': '',
     }
-}
-	```
+	}```
 10. Enter the	 `webapp` directory and migrate the database changes
 	```
 	$ cd polls
@@ -84,7 +83,7 @@ This is meant to be a sample of what the full product could potentially look lik
 
 Upon loading the site, it will give you three recommendations based on data science.  From there you may click on any of the images that are displayed.  That will take you to the page to check out more details about the item. 
 
-##License
+## License
 
 MIT 
 
