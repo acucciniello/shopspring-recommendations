@@ -25,9 +25,9 @@ DB_NAME = os.environ['DB_NAME']
 DB_USER = os.environ['DB_USER']
 DB_PASS = os.environ['DB_PASS']
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['ec2-54-172-174-220.compute-1.amazonaws.com']
 
 
 # Application definition
@@ -135,6 +135,9 @@ STATICFILES_DIRS = [
 
 STATIC_URL = '/static/'
 
+# STATIC_ROOT = 
+
 CORS_ORIGIN_WHITELIST = (
-    'localhost:3000'
+    'localhost:300',
+    'http://ec2-54-172-174-220.compute-1.amazonaws.com'
   )
