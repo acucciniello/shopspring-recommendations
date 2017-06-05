@@ -1,5 +1,13 @@
 .App {
   text-align: center;
+  font-family: 'Avenir Roman' !important;
+  font-size: 15px !important;
+  letter-spacing: 0.1px !important;
+  line-height: 19px !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+  white-space: nowrap !important;
+  display: block !important;
 }
 
 .App-logo {
@@ -7,12 +15,12 @@
 }
 
 .App-header {
-  background-color: #222;
+  background-color: white;
   height: 150px;
   padding: 20px;
-  color: white;
+  color: black;
 }
 
 .App-intro {
-  font-size: large;
+  font-size: 20px !important;
 }

@@ -96,3 +96,6 @@ webapp/*/migrations
 
 # d.sqlite3 file
 webapp/db.sqlite3
+
+# AWS pen file
+shopspring.pem
