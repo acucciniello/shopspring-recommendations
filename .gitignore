@@ -90,6 +90,7 @@ ENV/
 
 # Exports Script
 webapp/exports.sh
+exports.sh
 
 # Migrations for DB
 webapp/*/migrations

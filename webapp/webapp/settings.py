@@ -133,9 +133,9 @@ STATICFILES_DIRS = [
     os.path.join(REACT_APP_DIR, 'build', 'static'),
 ]
 
-STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(REACT_APP_DIR, 'build', 'static')
 
-# STATIC_ROOT = 
+STATIC_URL = '/static/'
 
 CORS_ORIGIN_WHITELIST = (
     'localhost:300',
