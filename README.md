@@ -50,6 +50,7 @@ Hosted on EC2 Instance [here](http://ec2-54-172-174-220.compute-1.amazonaws.com/
 	$ CREATE database shopspring-recommendations;
 	```
 10.  Add the Credentials to settings.py file
+
 	```	
 	DATABASES = {
     'default': {
@@ -62,6 +63,7 @@ Hosted on EC2 Instance [here](http://ec2-54-172-174-220.compute-1.amazonaws.com/
     }
 	}
    ```
+   
 11. Add DB_NAME, DB_USER, DB_PASS to secrets.sh
   ```
   export DB_NAME='DB_NAME'
