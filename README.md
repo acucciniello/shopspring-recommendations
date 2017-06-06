@@ -120,7 +120,13 @@ Hosted on EC2 Instance [here](http://ec2-54-172-174-220.compute-1.amazonaws.com/
 	$ python manage.py migrate
 	```
 	
-17. Run the Django App:
+17. Make sure you have postgreSQL running in another tab (Mac):
+
+	```
+	$ postgres -D /usr/local/var/postgres
+	```
+	
+18. Run the Django App:
 
 	```
 	$ python manage.py runserver
