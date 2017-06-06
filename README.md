@@ -68,31 +68,32 @@ Hosted on EC2 Instance [here](http://ec2-54-172-174-220.compute-1.amazonaws.com/
 	
 10.  Add the Credentials to settings.py file:
 
-	```
-	DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'DB_NAME',
-        'USER': 'DB_USER',
-        'PASSWORD': 'DB_PASS',
-        'HOST': 'localhost',
-        'PORT': '',
-    	}
-	}
+	 ```
+	 DATABASES = {
+     'default': {
+         'ENGINE': 'django.db.backends.postgresql_psycopg2',
+         'NAME': 'DB_NAME',
+         'USER': 'DB_USER',
+         'PASSWORD': 'DB_PASS',
+         'HOST': 'localhost',
+         'PORT': '',
+    	 }
+	 }
+	 ```
    
 11. Add DB_NAME, DB_USER, DB_PASS to secrets.sh:
 
-  ```
-  export DB_NAME='DB_NAME'
-  export DB_USER='DB_USER'
-  export DB_PASS='DB_PASS'
-  ```
+   ```
+   export DB_NAME='DB_NAME'
+   export DB_USER='DB_USER'
+   export DB_PASS='DB_PASS'
+   ```
   
 12. Run the bash script to set Environment Variables:
 
-  ```
-  $ . secrets.sh
-  ```
+   ```
+   $ . secrets.sh
+   ```
   
 13. Enter the	 `webapp` directory and migrate the database changes:
 
