@@ -12,46 +12,63 @@ Hosted on EC2 Instance [here](http://ec2-54-172-174-220.compute-1.amazonaws.com/
 4. Python 2.7.13
 
 ## Getting Started
-1. Git clone the repository
+1. Git clone the repository:
+
 	```
 	$ git clone https://github.com/acucciniello/shopspring-recommendations.git
 	```
-2. Enter the Repository
+	
+2. Enter the Repository:
+
 	```
 	$ cd shopspring-recommendations
 	```
+	
 3. Build the Frontend components:
+
    ```
    $ cd client
    $ npm install
    $ npm run build
    ```
-4. Start up a Virtual Environment
+   
+4. Start up a Virtual Environment:
+
 	```
   	$ cd ..
 	$ virtualenv env
 	$ source env/bin/activate
 	```
-5. Install Project Dependencies
+	
+5. Install Project Dependencies:
+
 	```
 	$ pip install -r requirements.txt
 	```
-6. Create a File named secrets.sh
+	
+6. Create a File named secrets.sh:
+
 	```
 	$ touch secrets.sh
 	```
+	
 7. Get a Secret Key from [here](http://www.miniwebtool.com/django-secret-key-generator/).
-8. Add the Key to secrets.sh
+
+8. Add the Key to secrets.sh:
+
 	```
 	export SECRET_KEY='SECRET_KEY'
 	```
-9. Create a postgres database in psql
+	
+9. Create a postgres database in psql:
+
 	```
 	$ CREATE database shopspring-recommendations;
 	```
-10.  Add the Credentials to settings.py file
+	
+10.  Add the Credentials to settings.py file:
 
-	```	
+	```
 	DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
@@ -62,39 +79,52 @@ Hosted on EC2 Instance [here](http://ec2-54-172-174-220.compute-1.amazonaws.com/
         'PORT': '',
     	}
 	}
-   ```
    
-11. Add DB_NAME, DB_USER, DB_PASS to secrets.sh
+11. Add DB_NAME, DB_USER, DB_PASS to secrets.sh:
+
   ```
   export DB_NAME='DB_NAME'
   export DB_USER='DB_USER'
   export DB_PASS='DB_PASS'
   ```
-12. Run the bash script to set Environment Variables
+  
+12. Run the bash script to set Environment Variables:
+
   ```
   $ . secrets.sh
   ```
-13. Enter the	 `webapp` directory and migrate the database changes
+  
+13. Enter the	 `webapp` directory and migrate the database changes:
+
 	```
 	$ cd polls
 	$ python manage,py migrate
 	```
+	
 14. Create an Admin Account:
+
 	```
 	$ python manage.py createsuperuser
 	```
-15. Make migrations for the app
+	
+15. Make migrations for the app:
+
 	```
 	$ python manage.py makemigrations polls
 	```
-16. Final Migrations
+	
+16. Final Migrations:
+
 	```
 	$ python manage.py migrate
 	```
-17. Run the Django App
+	
+17. Run the Django App:
+
 	```
 	$ python manage.py runserver
 	```
+	
 
 ## Inspiration
 
