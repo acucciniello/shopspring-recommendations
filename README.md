@@ -60,7 +60,7 @@ Hosted on EC2 Instance [here](http://ec2-54-172-174-220.compute-1.amazonaws.com/
         'PASSWORD': 'DB_PASS',
         'HOST': 'localhost',
         'PORT': '',
-    }
+    	}
 	}
    ```
    
