@@ -27,7 +27,7 @@ DB_PASS = os.environ['DB_PASS']
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['ec2-54-172-174-220.compute-1.amazonaws.com']
+ALLOWED_HOSTS = ['ec2-54-172-174-220.compute-1.amazonaws.com', '127.0.0.1']
 
 
 # Application definition
