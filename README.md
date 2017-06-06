@@ -61,7 +61,7 @@ Hosted on EC2 Instance [here](http://ec2-54-172-174-220.compute-1.amazonaws.com/
         'PORT': '',
     }
 	}
-  ```
+   ```
 11. Add DB_NAME, DB_USER, DB_PASS to secrets.sh
   ```
   export DB_NAME='DB_NAME'
