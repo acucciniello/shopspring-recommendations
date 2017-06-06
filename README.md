@@ -18,62 +18,79 @@ A Startup Page for shopspring.com to give users recommendations based on data sc
 	```
 	$ cd shopspring-recommendations
 	```
-3. Start up a Virtual Environment
+3. Build the Frontend components:
+  ```
+  $ cd client
+  $ npm install
+  $ npm run build
+  ```
+4. Start up a Virtual Environment
 	```
+  $ cd ..
 	$ virtualenv env
 	$ source env/bin/activate
 	```
-4. Install Project Dependencies
+5. Install Project Dependencies
 	```
 	$ pip install -r requirements.txt
 	```
-5. Create a File named secrets.sh
+6. Create a File named secrets.sh
 	```
 	$ touch secrets.sh
 	```
-6. Get a Secret Key from [here](http://www.miniwebtool.com/django-secret-key-generator/).
-7. Add the Key to secrets.sh
+7. Get a Secret Key from [here](http://www.miniwebtool.com/django-secret-key-generator/).
+8. Add the Key to secrets.sh
 	```
 	export SECRET_KEY='SECRET_KEY'
 	```
-8. Create a postgres database in psql
+9. Create a postgres database in psql
 	```
 	$ CREATE database shopspring-recommendations;
 	```
-9.  Add the Credentials to settings.py file
+10.  Add the Credentials to settings.py file
 	```	
 	DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'db_name',
-        'USER': 'name',
-        'PASSWORD': '',
+        'NAME': 'DB_NAME',
+        'USER': 'DB_USER',
+        'PASSWORD': 'DB_PASS',
         'HOST': 'localhost',
         'PORT': '',
     }
-	}```
-10. Enter the	 `webapp` directory and migrate the database changes
+	}
+  ```
+11. Add DB_NAME, DB_USER, DB_PASS to secrets.sh
+  ```
+  export DB_NAME='DB_NAME'
+  export DB_USER='DB_USER'
+  export DB_PASS='DB_PASS'
+  ```
+12. Run the bash script to set Environment Variables
+  ```
+  $ . secrets.sh
+  ```
+13. Enter the	 `webapp` directory and migrate the database changes
 	```
 	$ cd polls
 	$ python manage,py migrate
 	```
-11. Create an Admin Account:
+14. Create an Admin Account:
 	```
 	$ python manage.py createsuperuser
 	```
-12. Make migrations for the app
+15. Make migrations for the app
 	```
 	$ python manage.py makemigrations polls
 	```
-13. Final Migrations
+16. Final Migrations
 	```
 	$ python manage.py migrate
 	```
-14. Run the Django App
+17. Run the Django App
 	```
 	$ python manage.py runserver
 	```
-15.  Go to localhost:8000 in web browser
 
 ## Inspiration
 
@@ -86,4 +103,8 @@ Upon loading the site, it will give you three recommendations based on data scie
 ## License
 
 MIT 
+
+## Resources
+
+[Spring](https://www.shopspring.com/)
 
