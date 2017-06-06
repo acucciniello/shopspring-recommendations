@@ -2,6 +2,8 @@
 
 A Startup Page for shopspring.com to give users recommendations based on data science
 
+Hosted on EC2 Instance [here](http://ec2-54-172-174-220.compute-1.amazonaws.com/)
+
 ## Requirements
 
 1. Node v5.6.0
@@ -19,14 +21,14 @@ A Startup Page for shopspring.com to give users recommendations based on data sc
 	$ cd shopspring-recommendations
 	```
 3. Build the Frontend components:
-  ```
-  $ cd client
-  $ npm install
-  $ npm run build
-  ```
+   ```
+   $ cd client
+   $ npm install
+   $ npm run build
+   ```
 4. Start up a Virtual Environment
 	```
-  $ cd ..
+  	$ cd ..
 	$ virtualenv env
 	$ source env/bin/activate
 	```
